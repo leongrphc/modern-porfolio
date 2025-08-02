@@ -10,16 +10,13 @@ export const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <div className="animate-fade-in">
-              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
-                Merhaba, Ben
-                <span className="block text-primary bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                  Full Stack Developer
-                </span>
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-center">
+                Merhaba, Ben <span className="animate-gradient">Mustafa Özkan</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-                Modern web teknolojileri ile yaratıcı ve etkili çözümler geliştiren 
-                tutkulu bir yazılım geliştiricisiyim. React, Node.js ve cloud teknolojileri 
-                konusunda uzmanım.
+                Web tasarım ve grafik tasarım alanında deneyimli, kullanıcı odaklı ve 
+                modern çözümler geliştiren tutkulu bir tasarımcıyım. HTML, CSS, JavaScript 
+                ve Adobe Creative Suite konularında uzmanım.
               </p>
             </div>
             
@@ -30,8 +27,22 @@ export const Home = () => {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
+              <Button 
+                variant="outline" 
+                size="lg"
+                asChild
+              >
+                <a 
+                  href="/cv-mustafa-ozkan.pdf" 
+                  download="Mustafa-Ozkan-CV.pdf"
+                  className="flex items-center"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  CV İndir
+                </a>
+              </Button>
               <Link to="/contact">
-                <Button variant="outline" size="lg">
+                <Button variant="secondary" size="lg">
                   İletişime Geç
                 </Button>
               </Link>
@@ -40,7 +51,7 @@ export const Home = () => {
             {/* Social Links */}
             <div className="flex items-center justify-center space-x-6">
               <a
-                href="https://github.com"
+                href="https://github.com/leongrphc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -48,7 +59,7 @@ export const Home = () => {
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mozk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -56,7 +67,7 @@ export const Home = () => {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:leongrphc@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="h-6 w-6" />
@@ -75,17 +86,17 @@ export const Home = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-2">
-              <h3 className="text-3xl font-bold text-primary">5+</h3>
+            <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+              <h3 className="text-3xl font-bold text-primary">6+</h3>
               <p className="text-muted-foreground">Yıllık Deneyim</p>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-3xl font-bold text-primary">50+</h3>
-              <p className="text-muted-foreground">Tamamlanan Proje</p>
+            <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+              <h3 className="text-3xl font-bold text-primary">4+</h3>
+              <p className="text-muted-foreground">Yıl Grafik Tasarım</p>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-3xl font-bold text-primary">20+</h3>
-              <p className="text-muted-foreground">Mutlu Müşteri</p>
+            <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+              <h3 className="text-3xl font-bold text-primary">2+</h3>
+              <p className="text-muted-foreground">Yıl Web Geliştirme</p>
             </div>
           </div>
         </div>

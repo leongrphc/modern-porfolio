@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import { ExternalLink, Github, Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Github } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import { ProjectFilter } from '@/components/ProjectFilter';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import projectsData from '@/data/projects.json';
 
 interface Project {
   id: string;
@@ -18,45 +19,9 @@ interface Project {
 }
 
 export const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      setProjects(data || []);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-      toast({
-        title: 'Hata',
-        description: 'Projeler yüklenirken bir hata oluştu.',
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen pt-16 flex items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Projeler yükleniyor...</span>
-        </div>
-      </div>
-    );
-  }
+  // JSON dosyasından proje verilerini al
+  const allProjects: Project[] = projectsData.projects;
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects);
 
   return (
     <div className="min-h-screen pt-16">
@@ -69,18 +34,46 @@ export const Projects = () => {
           </p>
         </div>
 
+        {/* Project Filter */}
+        <ProjectFilter 
+          projects={allProjects} 
+          onFilteredProjectsChange={setFilteredProjects}
+        />
+
         {/* Projects Grid */}
-        {projects.length === 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <ScrollReveal key={project.id} direction="up" delay={index * 0.1}>
+              <ProjectCard project={project} />
+            </ScrollReveal>
+          ))}
+        </div>
+        
+        {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">Henüz proje eklenmemiş.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            <p className="text-muted-foreground">Bu kriterlere uygun proje bulunamadı.</p>
           </div>
         )}
+        
+        {/* GitHub Portfolio Link */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center space-x-2 text-muted-foreground mb-4">
+            <Github className="h-5 w-5" />
+            <span>Tüm projelerimi GitHub'da inceleyebilirsiniz</span>
+          </div>
+          <div>
+            <Button asChild size="lg">
+              <a
+                href="https://github.com/leongrphc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                GitHub Portfolyom
+              </a>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -117,7 +110,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
+            <Badge key={tech} variant="secondary" className="text-xs hover:bg-primary/10 hover:scale-105 transition-all duration-200 cursor-pointer">
               {tech}
             </Badge>
           ))}

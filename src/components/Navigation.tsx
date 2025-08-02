@@ -9,6 +9,7 @@ const navItems = [
   { href: '/about', label: 'Hakkımda' },
   { href: '/experience', label: 'Deneyimler' },
   { href: '/projects', label: 'Projeler' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'İletişim' },
 ];
 
@@ -24,8 +25,10 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-xl font-bold text-foreground">
-              Portfolio
+            <Link to="/" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
+              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                Mustafa Özkan
+              </span>
             </Link>
           </div>
 
@@ -36,10 +39,10 @@ export const Navigation = () => {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isActive(item.href)
-                      ? 'text-primary bg-primary/10'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                      ? 'text-primary bg-primary/10 shadow-md'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent hover:shadow-sm'
                   }`}
                 >
                   {item.label}

@@ -1,11 +1,39 @@
 import { Code, BookOpen, Award, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export const About = () => {
   const skills = [
-    { category: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'NestJS', 'PostgreSQL', 'MongoDB'] },
-    { category: 'Cloud & Tools', items: ['AWS', 'Docker', 'Git', 'Supabase', 'Vercel'] },
+    { 
+      category: 'Web Geliştirme', 
+      items: [
+        { name: 'HTML', level: 90 },
+        { name: 'CSS', level: 85 },
+        { name: 'JavaScript', level: 75 },
+        { name: 'PHP', level: 70 },
+        { name: 'Git/GitHub', level: 80 }
+      ]
+    },
+    { 
+      category: 'Grafik Tasarım', 
+      items: [
+        { name: 'Adobe Illustrator', level: 95 },
+        { name: 'Adobe Photoshop', level: 90 },
+        { name: 'Adobe XD', level: 85 },
+        { name: 'Adobe InDesign', level: 80 },
+        { name: 'UI/UX Design', level: 85 }
+      ]
+    },
+    { 
+      category: 'Programlama', 
+      items: [
+        { name: 'Python', level: 65 },
+        { name: 'C++', level: 60 },
+        { name: 'Flutter', level: 70 },
+        { name: 'Yapay Zeka', level: 55 },
+        { name: 'Otomasyon', level: 65 }
+      ]
+    },
   ];
 
   return (
@@ -21,91 +49,121 @@ export const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Bio Section */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2 mb-4">
-              <Heart className="h-5 w-5 text-primary" />
-              <h2 className="text-2xl font-semibold">Tutkum</h2>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Yazılım geliştirme dünyasında 5+ yıldır aktif olarak çalışıyorum. 
-              Kullanıcı deneyimini ön planda tutan, performanslı ve ölçeklenebilir 
-              web uygulamaları geliştirmek en büyük tutkum.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Modern JavaScript ekosisteminde uzmanlaşmış olmakla birlikte, 
-              full-stack geliştirme süreçlerinin her aşamasında deneyim sahibiyim. 
-              Özellikle React, Node.js ve cloud teknolojileri konularında derinlemesine bilgiye sahibim.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Açık kaynak projelere katkıda bulunmayı, teknik blog yazıları yazmayı 
-              ve teknoloji toplulukları ile bilgi paylaşımında bulunmayı seviyorum.
-            </p>
+          {/* Left Column - Bio & Skills */}
+          <div className="space-y-8">
+            {/* Bio Section */}
+            <ScrollReveal direction="left" delay={0.2}>
+              <div className="space-y-6">
+              <div className="flex items-center space-x-2 mb-4">
+                <Heart className="h-5 w-5 text-primary" />
+                <h2 className="text-2xl font-semibold">Tutkum</h2>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                Web tasarım ve grafik tasarım alanında 6+ yıldır aktif olarak çalışıyorum. 
+                Kullanıcı deneyimini ön planda tutan, modern ve görsel açıdan etkileyici 
+                tasarımlar yaratmak en büyük tutkum.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                HTML, CSS, JavaScript konularında deneyimli olmakla birlikte, 
+                Adobe Creative Suite ürünlerinde uzmanlaşmış durumdayım. 
+                Özellikle web arayüz tasarımı, sosyal medya görselleri ve marka kimliği 
+                oluşturma konularında derinlemesine bilgiye sahibim.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Farklı sektörlerden müşterilerle çalışmayı, yaratıcı çözümler sunmayı 
+                ve projelerimi GitHub üzerinden açık kaynak olarak paylaşmayı seviyorum.
+              </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Skills Section */}
+            <ScrollReveal direction="left" delay={0.4}>
+              <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <Code className="h-5 w-5 text-primary" />
+                <h2 className="text-2xl font-semibold">Teknik Yetenekler</h2>
+              </div>
+              <div className="space-y-4">
+                {skills.map((skillGroup) => (
+                  <Card key={skillGroup.category} className="hover:shadow-md transition-all duration-200">
+                    <CardContent className="p-4">
+                      <h3 className="font-semibold mb-3">{skillGroup.category}</h3>
+                      <div className="space-y-3">
+                        {skillGroup.items.map((skill) => (
+                          <div key={skill.name} className="space-y-2">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm font-medium">{skill.name}</span>
+                              <span className="text-xs text-muted-foreground">{skill.level}%</span>
+                            </div>
+                            <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                              <div 
+                                className="h-full bg-gradient-to-r from-primary to-primary-glow rounded-full transition-all duration-1000 ease-out hover:shadow-lg"
+                                style={{ width: `${skill.level}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
-          {/* Education & Achievements */}
+          {/* Right Column - Education & Achievements */}
           <div className="space-y-8">
-            <div>
+            <ScrollReveal direction="right" delay={0.3}>
+              <div>
               <div className="flex items-center space-x-2 mb-4">
                 <BookOpen className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold">Eğitim</h2>
               </div>
-              <Card>
+              <Card className="hover:shadow-md hover:scale-105 transition-all duration-200">
                 <CardContent className="p-6">
-                  <h3 className="font-semibold mb-1">Bilgisayar Mühendisliği</h3>
-                  <p className="text-muted-foreground text-sm mb-2">İstanbul Teknik Üniversitesi</p>
-                  <p className="text-muted-foreground text-sm">2015 - 2019</p>
+                  <h3 className="font-semibold mb-1">Bilgisayar Programcılığı</h3>
+                  <p className="text-muted-foreground text-sm mb-2">Kocaeli Üniversitesi</p>
+                  <p className="text-muted-foreground text-sm">Devam Ediyor • GPA: 3.37/4.0</p>
                 </CardContent>
               </Card>
-            </div>
+              </div>
+            </ScrollReveal>
 
-            <div>
+            <ScrollReveal direction="right" delay={0.5}>
+              <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Award className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold">Sertifikalar</h2>
               </div>
               <div className="space-y-3">
-                <Card>
+                <Card className="hover:shadow-md hover:scale-105 transition-all duration-200">
                   <CardContent className="p-4">
-                    <h3 className="font-semibold text-sm">AWS Certified Developer</h3>
-                    <p className="text-muted-foreground text-xs">Amazon Web Services</p>
+                    <h3 className="font-semibold text-sm">Flutter ile Mobil Uygulama Geliştirme</h3>
+                    <p className="text-muted-foreground text-xs">BTK Akademi</p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="hover:shadow-md hover:scale-105 transition-all duration-200">
                   <CardContent className="p-4">
-                    <h3 className="font-semibold text-sm">React Advanced Patterns</h3>
-                    <p className="text-muted-foreground text-xs">Epic React by Kent C. Dodds</p>
+                    <h3 className="font-semibold text-sm">Algoritma Programlama ve Veri Yapıları</h3>
+                    <p className="text-muted-foreground text-xs">BTK Akademi</p>
                   </CardContent>
                 </Card>
+                <Card className="hover:shadow-md hover:scale-105 transition-all duration-200">
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold text-sm">İleri Düzey Python Programlama</h3>
+                    <p className="text-muted-foreground text-xs">BTK Akademi</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-md hover:scale-105 transition-all duration-200">
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold text-sm">HTML5 ile Web Geliştirme</h3>
+                    <p className="text-muted-foreground text-xs">BTK Akademi</p>
+                  </CardContent>
+                </Card>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Skills Section */}
-        <div className="mt-20">
-          <div className="flex items-center space-x-2 mb-8 justify-center">
-            <Code className="h-5 w-5 text-primary" />
-            <h2 className="text-2xl font-semibold">Teknik Yetenekler</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {skills.map((skillGroup) => (
-              <Card key={skillGroup.category}>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4 text-center">{skillGroup.category}</h3>
-                  <div className="space-y-2">
-                    {skillGroup.items.map((skill) => (
-                      <div
-                        key={skill}
-                        className="text-sm text-center py-1 px-3 bg-primary/10 text-primary rounded-full"
-                      >
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            </ScrollReveal>
           </div>
         </div>
       </div>

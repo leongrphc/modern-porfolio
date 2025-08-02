@@ -5,52 +5,52 @@ import { Badge } from '@/components/ui/badge';
 export const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'TechCorp A.Ş.',
+      title: 'Web Designer',
+      company: 'Akmanlar Business Center',
       location: 'İstanbul, Türkiye',
-      period: 'Ocak 2022 - Devam Ediyor',
+      period: 'Mart 2023 - Eylül 2024',
       type: 'Tam Zamanlı',
-      description: 'E-ticaret platformları ve kurumsal web uygulamaları geliştirme süreçlerinde liderlik rolü üstlendim.',
+      description: 'İş merkezinde bulunan çeşitli firmalar için özgün ve kullanıcı odaklı web sitesi tasarımları oluşturdum.',
       responsibilities: [
-        'React ve TypeScript kullanarak modern web uygulamaları geliştirme',
-        'Node.js ile RESTful API ve GraphQL servisleri tasarlama',
-        'AWS üzerinde mikroservis mimarileri kurma ve yönetme',
-        'Junior geliştiricilere mentorluk ve code review süreçlerini yönetme',
-        'CI/CD pipeline kurulumu ve DevOps süreçlerinin optimizasyonu'
+        'Şirketlerin kurumsal kimliklerine uygun modern ve responsive tasarımlar geliştirme',
+        'Kullanıcı deneyimini ön planda tutarak tasarımlar oluşturma',
+        'SEO ve performans optimizasyonlarına özel dikkat gösterme',
+        'Müşteri ihtiyaçları doğrultusunda özelleştirilmiş çözümler sunma',
+        'Proje süreçlerini başından sonuna kadar yönetme'
       ],
-      technologies: ['React', 'TypeScript', 'Node.js', 'AWS', 'PostgreSQL', 'Docker']
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Adobe XD', 'Photoshop', 'Responsive Design']
     },
     {
-      title: 'Frontend Developer',
-      company: 'Digital Agency XYZ',
-      location: 'İstanbul, Türkiye',
-      period: 'Haziran 2020 - Aralık 2021',
-      type: 'Tam Zamanlı',
-      description: 'Çeşitli markaların dijital varlığını güçlendiren web uygulamaları ve kampanya siteleri geliştirdim.',
+      title: 'Freelance Graphic Designer',
+      company: 'Fiverr.com',
+      location: 'Remote, Online',
+      period: 'Ocak 2021 - Ekim 2022',
+      type: 'Freelance',
+      description: 'Fiverr üzerinden farklı ülkelerden müşterilerle çalışarak logo, poster ve sosyal medya görselleri tasarladım.',
       responsibilities: [
-        'Vue.js ve React ile responsive web uygulamaları geliştirme',
-        'UI/UX tasarımlarını pixel-perfect olarak kodlama',
-        'Performance optimizasyonu ve SEO iyileştirmeleri',
-        'A/B testing ve analitik entegrasyonları',
-        'Müşteri sunumları ve teknik dokümantasyon hazırlama'
+        'Müşteri istekleri doğrultusunda özgün tasarımlar hazırlama',
+        'Logo, poster ve sosyal medya görselleri tasarlama',
+        'Projeleri eksiksiz ve zamanında teslim etme',
+        'Müşteri memnuniyetini ön planda tutarak revizyon taleplerini hızla karşılama',
+        'Çeşitli sektörlerden markalara yaratıcı çözümler sunma'
       ],
-      technologies: ['Vue.js', 'React', 'Sass', 'Webpack', 'Firebase', 'Google Analytics']
+      technologies: ['Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign', 'Canva', 'Brand Identity']
     },
     {
-      title: 'Junior Web Developer',
-      company: 'StartUp Hub',
-      location: 'Ankara, Türkiye',
-      period: 'Eylül 2019 - Mayıs 2020',
+      title: 'Social Media Designer',
+      company: 'İbat Ayakkabı Tekstil İnşaat Sanayi ve Ticaret Ltd. Şti.',
+      location: 'İstanbul, Türkiye',
+      period: 'Ocak 2018 - Ağustos 2021',
       type: 'Tam Zamanlı',
-      description: 'Startup ekosisteminde çeşitli projelerde yer alarak web geliştirme tecrübemi artırdım.',
+      description: 'Ayakkabı satışını desteklemek için sosyal medya görselleri, story tasarımları ve kampanya içerikleri oluşturdum.',
       responsibilities: [
-        'HTML, CSS ve JavaScript ile dinamik web siteleri oluşturma',
-        'WordPress ve custom CMS entegrasyonları',
-        'E-ticaret platformlarına özel modül geliştirme',
-        'Mobil uyumlu tasarımlar ve cross-browser uyumluluk',
-        'Veritabanı tasarımı ve optimizasyonu'
+        'Sosyal medya görselleri ve story tasarımları oluşturma',
+        'Şirket web sitesinin kullanıcı arayüz tasarımı ve içerik güncellemeleri',
+        'Logo, poster ve dijital reklam tasarımları gibi yaratıcı projelerde aktif rol alma',
+        'Tasarımlarda güncel trendleri takip ederek markanın değerini yansıtan çalışmalar oluşturma',
+        'Kampanya görsellerinin stratejik planlanması ve uygulanması'
       ],
-      technologies: ['JavaScript', 'PHP', 'MySQL', 'WordPress', 'Bootstrap', 'jQuery']
+      technologies: ['Adobe Photoshop', 'Adobe Illustrator', 'Social Media Design', 'Web UI Design', 'Brand Design']
     }
   ];
 
@@ -78,7 +78,7 @@ export const Experience = () => {
 
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-1/2 md:pr-8' : 'md:pl-1/2 md:pl-8'}`}>
-                  <Card className="hover:shadow-lg transition-shadow">
+                  <Card className="hover:shadow-lg hover:scale-105 transition-all duration-300">
                     <CardContent className="p-6">
                       {/* Header */}
                       <div className="mb-4">
@@ -123,7 +123,7 @@ export const Experience = () => {
                         <h4 className="font-medium mb-2">Kullanılan Teknolojiler:</h4>
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">
+                            <Badge key={tech} variant="outline" className="text-xs hover:bg-primary/10 hover:border-primary transition-all duration-200 cursor-pointer">
                               {tech}
                             </Badge>
                           ))}

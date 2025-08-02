@@ -78,15 +78,15 @@ export const Contact = () => {
             <div>
               <h2 className="text-2xl font-semibold mb-6">İletişim Bilgileri</h2>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hover:bg-muted/50 p-2 rounded-lg transition-all duration-200 cursor-pointer">
                   <Mail className="h-5 w-5 text-primary" />
-                  <span>your.email@example.com</span>
+                  <span>leongrphc@gmail.com</span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hover:bg-muted/50 p-2 rounded-lg transition-all duration-200 cursor-pointer">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span>+90 (555) 123 45 67</span>
+                  <span>+90 537 635 19 06</span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hover:bg-muted/50 p-2 rounded-lg transition-all duration-200 cursor-pointer">
                   <MapPin className="h-5 w-5 text-primary" />
                   <span>İstanbul, Türkiye</span>
                 </div>
@@ -96,11 +96,11 @@ export const Contact = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Neden Benimle Çalışmalısınız?</h3>
               <div className="space-y-3 text-muted-foreground">
-                <p>✨ Modern ve responsive tasarımlar</p>
-                <p>⚡ Hızlı ve performanslı uygulamalar</p>
-                <p>🔧 Güncel teknolojiler ve best practice'ler</p>
-                <p>📱 Mobil-first yaklaşım</p>
-                <p>🤝 Şeffaf iletişim ve zamanında teslimat</p>
+                <p>✨ Yaratıcı ve özgün tasarım çözümleri</p>
+                <p>🎨 Adobe Creative Suite konusunda uzmanlık</p>
+                <p>💻 Web tasarım ve UI/UX deneyimi</p>
+                <p>📱 Sosyal medya ve dijital pazarlama görselleri</p>
+                <p>🤝 Müşteri memnuniyeti odaklı çalışma</p>
               </div>
             </div>
 

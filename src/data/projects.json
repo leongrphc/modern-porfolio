@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Kişisel Web Site Projesi",
+      "description": "Sıfırdan tasarladığım ve geliştirdiğim kişisel web sitem. Sürekli güncellenen portfolyo ve proje sergisi. Tüm tasarım, geliştirme ve yönetim aşamalarını tek başıma üstlendiğim proje.",
+      "technologies": ["HTML", "CSS", "JavaScript", "Responsive Design", "Web UI/UX"],
+      "image_url": "/placeholder.svg",
+      "github_url": "https://github.com/leongrphc",
+      "live_url": "#",
+      "created_at": "2024-07-01"
+    }
+  ]
+}
