@@ -13,6 +13,7 @@ import { About } from "./pages/About";
 import { Experience } from "./pages/Experience";
 import { Projects } from "./pages/Projects";
 import { Contact } from "./pages/Contact";
+import { YouTubeAnalyzer } from "./pages/YouTubeAnalyzer";
 import { Blog } from "./pages/Blog";
 import { BlogPost } from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
@@ -29,6 +30,7 @@ const AppContent = () => {
           <Route path="/about" element={<About />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/youtube-analyzer" element={<YouTubeAnalyzer />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
