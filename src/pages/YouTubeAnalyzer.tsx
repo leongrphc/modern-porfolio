@@ -3,22 +3,63 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Youtube, Play, FileText, Loader2 } from 'lucide-react';
+import { Youtube, Play, FileText, Loader2, Key } from 'lucide-react';
 
 export const YouTubeAnalyzer = () => {
   const [videoUrl, setVideoUrl] = useState('');
+  const [geminiApiKey, setGeminiApiKey] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysis, setAnalysis] = useState('');
 
   const handleAnalyze = async () => {
-    if (!videoUrl) return;
+    if (!videoUrl || !geminiApiKey) return;
     
     setIsAnalyzing(true);
-    // Simulated analysis - will be implemented later
-    setTimeout(() => {
-      setAnalysis('Bu özellik yakında eklenecek. YouTube videolarını analiz ederek özet çıkarabileceksiniz.');
+    setAnalysis('🚀 Video analizi başlatılıyor...\n\n⏳ Bu işlem 30-60 saniye sürebilir, lütfen bekleyin...\n\n');
+    
+    try {
+      // Uzun süren işlem için timeout artır
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 dakika timeout
+      
+      const response = await fetch('https://ghgskzr5.rpcld.net/webhook/c8ca5cf6-62d7-4007-8f3c-3435aaaf9b25', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          video: videoUrl,
+          api_key: geminiApiKey
+        }),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.text();
+      console.log('Workflow sonucu:', result);
+      
+      // Sonucu göster
+      if (result && result.trim() !== '' && !result.includes('Workflow was started')) {
+        setAnalysis(`✅ Analiz tamamlandı!\n\n${result}`);
+      } else {
+        setAnalysis(`⚠️ Workflow başlatıldı ancak henüz sonuç hazır değil.\n\nAlınan yanıt: ${result}\n\nN8N workflow'unuzun sonunda "Respond to Webhook" node'u eklemeyi unutmayın.`);
+      }
+      
+    } catch (error) {
+      console.error('Analiz hatası:', error);
+      if (error.name === 'AbortError') {
+        setAnalysis(`⏰ Timeout: İşlem çok uzun sürdü (2 dakika).\n\nVideo çok uzun olabilir veya API yavaş yanıt veriyor olabilir. Lütfen tekrar deneyin.`);
+      } else {
+        setAnalysis(`❌ Analiz sırasında bir hata oluştu: ${error.message}\n\nLütfen URL ve API key'inizi kontrol edip tekrar deneyin.`);
+      }
+    } finally {
       setIsAnalyzing(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -42,38 +83,57 @@ export const YouTubeAnalyzer = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Play className="h-5 w-5" />
-                Video Linki
+                Video Analizi
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex gap-4">
-                <Input
-                  placeholder="YouTube video linkini buraya yapıştırın..."
-                  value={videoUrl}
-                  onChange={(e) => setVideoUrl(e.target.value)}
-                  className="flex-1"
-                />
-                <Button 
-                  onClick={handleAnalyze}
-                  disabled={!videoUrl || isAnalyzing}
-                  className="px-8"
-                >
-                  {isAnalyzing ? (
-                    <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      Analiz Ediliyor...
-                    </>
-                  ) : (
-                    <>
-                      <FileText className="h-4 w-4 mr-2" />
-                      Analiz Et
-                    </>
-                  )}
-                </Button>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <Input
+                    placeholder="YouTube video linkini buraya yapıştırın..."
+                    value={videoUrl}
+                    onChange={(e) => setVideoUrl(e.target.value)}
+                    className="flex-1"
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-1 relative">
+                    <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      type="password"
+                      placeholder="Gemini API Key..."
+                      value={geminiApiKey}
+                      onChange={(e) => setGeminiApiKey(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                  <Button 
+                    onClick={handleAnalyze}
+                    disabled={!videoUrl || !geminiApiKey || isAnalyzing}
+                    className="px-8"
+                  >
+                    {isAnalyzing ? (
+                      <>
+                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        Analiz Ediliyor...
+                      </>
+                    ) : (
+                      <>
+                        <FileText className="h-4 w-4 mr-2" />
+                        Analiz Et
+                      </>
+                    )}
+                  </Button>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Örnek: https://www.youtube.com/watch?v=VIDEO_ID
-              </p>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">
+                  Örnek: https://www.youtube.com/watch?v=VIDEO_ID
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Gemini API key'inizi <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-primary underline">Google AI Studio</a>'dan alabilirsiniz
+                </p>
+              </div>
             </CardContent>
           </Card>
 
