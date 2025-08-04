@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { ColorSchemeSelector } from '@/components/ColorSchemeSelector';
 
 const navItems = [
   { href: '/', label: 'Anasayfa' },
@@ -51,8 +52,9 @@ export const Navigation = () => {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Theme Toggle, Color Scheme & Mobile Menu Button */}
           <div className="flex items-center space-x-2">
+            <ColorSchemeSelector />
             <ThemeToggle />
             <div className="md:hidden">
               <Button

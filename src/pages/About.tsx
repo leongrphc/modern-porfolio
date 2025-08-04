@@ -25,13 +25,13 @@ export const About = () => {
       ]
     },
     { 
-      category: 'Programlama', 
+      category: 'Programlama (Öğrenme Süreci)', 
       items: [
-        { name: 'Python', level: 65 },
-        { name: 'C++', level: 60 },
-        { name: 'Flutter', level: 70 },
-        { name: 'Yapay Zeka', level: 55 },
-        { name: 'Otomasyon', level: 65 }
+        { name: 'C++', level: 80 },
+        { name: 'Python', level: 80 },
+        { name: 'Algoritma & Veri Yapıları', level: 75 },
+        { name: 'Problem Çözme', level: 80 },
+        { name: 'Öğrenme Motivasyonu', level: 95 }
       ]
     },
   ];
@@ -43,8 +43,8 @@ export const About = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">Hakkımda</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Teknoloji tutkunu bir yazılım geliştiricisi olarak, sürekli öğrenmeye 
-            ve kendimi geliştirmeye odaklanıyorum.
+            Uzun yıllardır tasarım yapan, şimdi yazılım dünyasında yeni ufuklar keşfeden 
+            hibrit bir yaratıcı. Tasarım deneyimimi programlama ile birleştirerek benzersiz çözümler üretiyorum.
           </p>
         </div>
 

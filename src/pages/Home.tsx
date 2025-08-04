@@ -14,9 +14,9 @@ export const Home = () => {
                 Merhaba, Ben <span className="animate-gradient">Mustafa Özkan</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-                Web tasarım ve grafik tasarım alanında deneyimli, kullanıcı odaklı ve 
-                modern çözümler geliştiren tutkulu bir tasarımcıyım. HTML, CSS, JavaScript 
-                ve Adobe Creative Suite konularında uzmanım.
+                Web tasarım ve grafik tasarım alanında deneyimli, şimdi de C++ ve Python 
+                ile yazılım geliştirme öğrenen tutkulu bir yaratıcıyım. Adobe Creative Suite 
+                ve web teknolojilerinde uzmanken, algoritma ve programlama dünyasını keşfediyorum.
               </p>
             </div>
             
@@ -51,24 +51,27 @@ export const Home = () => {
             {/* Social Links */}
             <div className="flex items-center justify-center space-x-6">
               <a
-                href="https://github.com/leongrphc"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                title="GitHub (güncelleme bekliyor)"
               >
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://www.linkedin.com/in/mozk"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                title="LinkedIn (güncelleme bekliyor)"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
-                href="mailto:leongrphc@gmail.com"
+                href="mailto:admin@mustafaozkan.com.tr"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                title="Email"
               >
                 <Mail className="h-6 w-6" />
               </a>
@@ -87,16 +90,16 @@ export const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
-              <h3 className="text-3xl font-bold text-primary">6+</h3>
-              <p className="text-muted-foreground">Yıllık Deneyim</p>
+              <h3 className="text-3xl font-bold text-primary">3+</h3>
+              <p className="text-muted-foreground">Yıl Tasarım Deneyimi</p>
             </div>
             <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
-              <h3 className="text-3xl font-bold text-primary">4+</h3>
-              <p className="text-muted-foreground">Yıl Grafik Tasarım</p>
+              <h3 className="text-3xl font-bold text-primary">C++</h3>
+              <p className="text-muted-foreground">Öğreniyorum</p>
             </div>
             <div className="space-y-2 hover:scale-105 hover:bg-muted/50 p-4 rounded-lg transition-all duration-300 cursor-pointer">
-              <h3 className="text-3xl font-bold text-primary">2+</h3>
-              <p className="text-muted-foreground">Yıl Web Geliştirme</p>
+              <h3 className="text-3xl font-bold text-primary">Python</h3>
+              <p className="text-muted-foreground">Gelişiyorum</p>
             </div>
           </div>
         </div>
