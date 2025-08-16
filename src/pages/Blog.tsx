@@ -32,6 +32,8 @@ export const Blog = () => {
       try {
         const mockPosts: BlogPost[] = [
           {
+
+            //blog ekleme 
             id: '1',
             title: 'React ve TypeScript ile Modern Web Geliştirme',
             excerpt: 'React ve TypeScript kombinasyonunu kullanarak güçlü ve tip güvenli web uygulamaları geliştirme rehberi.',
@@ -70,19 +72,7 @@ export const Blog = () => {
             image: '/placeholder.svg',
             category: 'Design'
           },
-          {
-            id: '4',
-            title: 'JavaScript Performance Optimizasyonu',
-            excerpt: 'Web uygulamalarında JavaScript performansını artırma teknikleri ve modern optimizasyon yöntemleri.',
-            content: '',
-            slug: 'javascript-performance-optimizasyonu',
-            author: 'Mustafa Özkan',
-            date: '2023-12-28',
-            readTime: '12 dk okuma',
-            tags: ['JavaScript', 'Performance', 'Optimization'],
-            image: '/placeholder.svg',
-            category: 'Frontend'
-          }
+          
         ];
         
         setPosts(mockPosts);

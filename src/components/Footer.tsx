@@ -90,10 +90,7 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground">
               © 2024 Mustafa Özkan. Tüm hakları saklıdır.
             </p>
-            <p className="text-sm text-muted-foreground flex items-center mt-2 md:mt-0">
-              <Heart className="h-4 w-4 mr-1 text-red-500" />
-              ile Türkiye'de yapıldı
-            </p>
+          
           </div>
         </div>
       </div>

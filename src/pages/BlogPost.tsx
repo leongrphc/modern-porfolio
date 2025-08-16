@@ -135,8 +135,32 @@ Tailwind CSS, hızlı ve tutarlı UI geliştirme için mükemmel bir araçtır.
             readTime: '6 dk okuma',
             tags: ['CSS', 'Tailwind', 'UI/UX'],
             image: '/placeholder.svg'
+          },
+
+        
+{
+            id: '3',
+            title: 'Figma ile Profesyonel Web Tasarımı',
+            excerpt: 'Figma kullanarak profesyonel web tasarımları oluşturma, prototipleme ve geliştirici iş birliği.',
+            content: `
+test
+            `,
+            slug: 'figma-profesyonel-web-tasarimi',
+            author: 'Mustafa Özkan',
+            date: '2024-01-10',
+            readTime: '6 dk okuma',
+            tags: ['CSS', 'Tailwind', 'UI/UX'],
+            image: '/placeholder.svg'
           }
+
+
         ];
+        
+
+
+
+
+
 
         const foundPost = mockPosts.find(p => p.slug === slug);
         setPost(foundPost || null);
